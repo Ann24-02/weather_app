@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>  
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <canvas id="weatherCanvas"></canvas>
+
+   
+    <div class="container">
+        <h1>Weather app</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Enter the town.." class="search-bar">
+            <button class="search-btn">Search</button>
+        </div>
+
+        <div class="weather-container">
+            <div class="location">The town has not chosen</div>
+            <div class="current-weather">
+                <div class="temp">--°C</div>
+                <div class="weather-icon">
+                    <img src="assets/2682849_cloud_cloudy_day_forecast_sun_icon.png" alt="Weather icon">
+                </div>
+
+                <div class="details">
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span class="detail-value">--%</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Wind</span> <!-- Исправлено: было detail-value -->
+                        <span class="detail-value">--m/s</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Pressure</span>
+                        <span class="detail-value">--hPa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>    
+</body>
+</html>
