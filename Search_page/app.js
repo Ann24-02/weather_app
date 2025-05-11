@@ -17,6 +17,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; 
 canvas.height = window.innerHeight; 
 
+
+
 let particles = [];
 let animationId; 
 let currentWeather = ''; 
@@ -81,19 +83,22 @@ function updateBackgroundAnimation(weatherCondition) {
     if(animationId){
         cancelAnimationFrame(animationId);
     }
+    const isRain = ['rain', 'drizzle'].includes(weatherCondition);
+    const isSnow = ['snow', 'sleet'].includes(weatherCondition);
 
     particles = []; 
 
     const particleCount = weatherCondition === 'rain' ? 200 : 
                          weatherCondition === 'snow' ? 150 : 0; 
 
+
     for(let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random()*canvas.width,
             y: Math.random()*canvas.height,
-            speed: weatherCondition === 'Rain' ? 2 + Math.random() * 5 : 1 + Math.random()*3,
-            size: weatherCondition === 'Rain' ? 1+Math.random() : 2 + Math.random()*2,
-            type: weatherCondition === 'Rain' ? 'rain' : 'snow',
+            speed: weatherCondition === 'rain' ? 2 + Math.random() * 5 : 1 + Math.random()*3,
+            size: weatherCondition === 'rain' ? 1+Math.random() : 2 + Math.random()*2,
+            type: weatherCondition === 'rain' ? 'rain' : 'snow',
             opacity: 0.5 + Math.random()*0.5
         });
     }
@@ -105,6 +110,7 @@ function updateBackgroundAnimation(weatherCondition) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
+
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
